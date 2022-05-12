@@ -7,9 +7,15 @@ This repo holds code to cross compile for JETSON using Docker and qemu, tested o
  - Install Docker
    	https://docs.docker.com/engine/install/ubuntu/
  - Install QEMU
-	`sudo apt-get update && apt-get install -y --no-install-recommends qemu-user-static binfmt-support`
-	`update-binfmts --enable qemu-arm`
-	`update-binfmts --display qemu-arm`
+	`sudo apt-get update && sudo apt-get install -y --no-install-recommends qemu-user-static binfmt-support`
+	
+	`sudo update-binfmts --enable qemu-arm`
+	
+	`sudo update-binfmts --display qemu-arm`
+	
+ - Also add your user to the docker group then restart
+
+	`sudo usermod -a -G docker exampleusername`
 	
 ## Create Dependancy List
 
@@ -36,13 +42,16 @@ Remove any local dependancies
 ## Setup Docker images	
 	
  - Setup Docker Image of JETSON
-	`cd jetson_cross_compile
+	`cd jetson_cross_compile`
+	
  	`./jetson_setup`
+	
  - Setup commands
  	`cd ${HOME}`
+	
  	`nano .bash_aliases`
+	
  	`alias jetson_make='bash $HOME/cross-compile-arm-ros/jetson/jetson_make.sh'`
- 	
  	
 ## Running catkin_make for JETSON
 
