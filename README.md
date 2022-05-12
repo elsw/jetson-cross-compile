@@ -51,7 +51,7 @@ Remove any local dependancies
 	
  	`nano .bash_aliases`
 	
- 	`alias jetson_make='bash $HOME/cross-compile-arm-ros/jetson/jetson_make.sh'`
+ 	`alias jetson_make='bash $HOME/cross-compile-arm-ros/jetson_make.sh'`
  	
 ## Running catkin_make for JETSON
 
