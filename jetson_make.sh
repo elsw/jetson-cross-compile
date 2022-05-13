@@ -1,4 +1,8 @@
 #!/bin/bash
+if [ "$(docker ps -a | grep jet_container)" ]; then
+        # cleanup
+        docker rm jet_container
+fi
 docker create -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static --name jet_container jet_image
 docker cp src/ jet_container:/catkin_ws/
 if [ -d "jet_devel" ] 
