@@ -1,6 +1,7 @@
 #!/bin/bash
 if [ "$(docker ps -a | grep jet_container)" ]; then
         # cleanup
+        docker stop jet_container
         docker rm jet_container
 fi
 docker create -v /usr/bin/qemu-arm-static:/usr/bin/qemu-arm-static --name jet_container jet_image
